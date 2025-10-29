@@ -1,21 +1,18 @@
+import { homePageStyles } from "@/src/assets/styles/home-page-styles";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SettingsPage() {
-  const { toggleDarkMode } = useTheme();
+  const { colors } = useTheme();
+
+  // create the styles using the theme colors
+  const styles = homePageStyles(colors);
 
   return (
-    <View
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-        paddingTop: 20,
-      }}
-    >
-      <TouchableOpacity onPress={toggleDarkMode}>
-        <Text>Toggle theme</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <Text style={styles.loadingText}>Settings</Text>
+    </SafeAreaView>
   );
 }
