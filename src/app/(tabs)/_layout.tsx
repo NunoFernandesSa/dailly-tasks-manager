@@ -4,7 +4,17 @@ import React from "react";
 
 export default function TabsLayout() {
   return (
-    <Tabs screenOptions={{}}>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "tomato",
+        tabBarInactiveTintColor: "gray",
+        tabBarStyle: {
+          borderTopWidth: 1,
+          borderTopColor: "gray",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
