@@ -1,32 +1,19 @@
+import { homePageStyles } from "@/src/assets/styles/home-page-styles";
 import useTheme from "@/src/hooks/useTheme";
-import { ColorSchemeType } from "@/src/types/color-scheme-type";
 import React from "react";
 
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function DashboardPage() {
   const { colors } = useTheme();
 
-  const styles = createStyles(colors);
+  // create the styles using the theme colors
+  const styles = homePageStyles(colors);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.context}>Dashboard</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <Text style={styles.loadingText}>Dashboard</Text>
     </SafeAreaView>
   );
 }
-
-const createStyles = (colors: ColorSchemeType) => {
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: colors.bg,
-    },
-    context: {
-      color: colors.text,
-    },
-  });
-
-  return styles;
-};
