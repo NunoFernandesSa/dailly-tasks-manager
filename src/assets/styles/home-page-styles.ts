@@ -1,3 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const homePageStyles = StyleSheet.create({});
+export const homePageStyles = StyleSheet.create({
+  container: {},
+  content: {},
+});
