@@ -1,8 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
+import { TodoType } from "../types/todos-types";
 
 export default function useTodos() {
-  const [todos, setTodos] = useState<any[]>([]);
+  const [todos, setTodos] = useState<TodoType[]>([]);
 
   useEffect(() => {
     loadTodos();
@@ -21,7 +22,7 @@ export default function useTodos() {
    * Adds a new todo item to the list and persists it to AsyncStorage.
    * @param task - The todo item to add.
    */
-  const addTodo = async (task: any) => {
+  const addTodo = async (task: TodoType) => {
     const newTodos = [...todos, task];
     setTodos(newTodos);
     await AsyncStorage.setItem("todos", JSON.stringify(newTodos));
@@ -32,7 +33,7 @@ export default function useTodos() {
    * @param index - The index of the todo item to update.
    * @param newValue - The new value to replace the existing todo item.
    */
-  const updateTodo = async (index: number, newValue: any) => {
+  const updateTodo = async (index: number, newValue: TodoType) => {
     const newTodos = [...todos];
     newTodos[index] = newValue;
     setTodos(newTodos);
