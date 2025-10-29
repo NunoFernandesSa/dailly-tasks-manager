@@ -1,6 +1,6 @@
-import SafeAreaContent from "@/src/components/common/safe-area-content";
 import React from "react";
+import { View } from "react-native";
 
 export default function TasksPage() {
-  return <SafeAreaContent></SafeAreaContent>;
+  return <View></View>;
 }
