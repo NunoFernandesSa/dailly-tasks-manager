@@ -23,7 +23,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Dashboard",
+          title: "Home",
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons
               name="home"
@@ -34,12 +34,12 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="tasks"
+        name="dashboard"
         options={{
-          title: "Tasks",
+          title: "Dashboard",
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons
-              name="list"
+              name="apps"
               size={size}
               color={focused ? color : "gray"}
             />

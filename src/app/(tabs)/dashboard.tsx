@@ -4,7 +4,7 @@ import React from "react";
 import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function TasksPage() {
+export default function DashboardPage() {
   const { colors } = useTheme();
 
   // create the styles using the theme colors
@@ -12,7 +12,7 @@ export default function TasksPage() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Text style={styles.loadingText}>Tasks</Text>
+      <Text style={styles.loadingText}>Dashboard Page</Text>
     </SafeAreaView>
   );
 }

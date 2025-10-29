@@ -12,7 +12,7 @@ export default function SettingsPage() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Text style={styles.loadingText}>Settings</Text>
+      <Text style={styles.loadingText}>Settings Page</Text>
     </SafeAreaView>
   );
 }
