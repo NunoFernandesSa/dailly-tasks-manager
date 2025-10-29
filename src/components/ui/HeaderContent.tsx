@@ -1,9 +1,11 @@
+import { HeaderTypes } from "@/src/types/header-types";
 import React from "react";
-import { Text } from "react-native";
+import { View } from "react-native";
 
-export default function HeaderContent() {
-  const title = "Welcome";
-  const user = "User";
-
-  return <Text>{`${title} ${user}`}</Text>;
+export default function HeaderDashboard({
+  icon,
+  title,
+  description,
+}: HeaderTypes) {
+  return <View></View>;
 }
