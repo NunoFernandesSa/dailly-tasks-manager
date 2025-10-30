@@ -2,6 +2,7 @@ import { homePageStyles } from "@/src/assets/styles/home-page-styles";
 import useTheme from "@/src/hooks/useTheme";
 import useTodos from "@/src/hooks/useTodos";
 import { HeaderTypes } from "@/src/types/header-types";
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Text, View } from "react-native";
 
@@ -27,34 +28,48 @@ export default function HeaderHomeComponent({
     ? todos.filter((todo) => todo.completed).length
     : 0;
 
-  // total of todos count
+  // ----- total of todos count -----
   const totalTodosCount = todos ? todos.length : 0;
 
-  const progresspourcentage =
+  // ----- calculate progress percentage -----
+  const progressPourcentage =
     totalTodosCount > 0 ? (completedTodosCount / totalTodosCount) * 100 : 0;
 
   return (
     <View style={styles.header}>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          gap: 12,
-        }}
-      >
-        <Text style={styles.title}>My Tasks |</Text>
+      <View style={styles.titleContainer}>
+        <View style={styles.titleTextContainer}>
+          <Text style={styles.title}>My Tasks</Text>
+          <Text style={styles.subtitle}>
+            {!totalTodosCount || totalTodosCount === 0
+              ? "Any task available!"
+              : `${completedTodosCount} tasks of ${totalTodosCount} completed`}
+          </Text>
+        </View>
+
         <Text style={styles.subtitle}>
           {day}/{month}/{year}
         </Text>
       </View>
 
-      <Text style={styles.subtitle}>
-        {!totalTodosCount || totalTodosCount === 0
-          ? "Any task available. Add a new one!"
-          : `${completedTodosCount} tasks of ${totalTodosCount} completed`}
-      </Text>
+      {true && (
+        <View style={styles.progressContainer}>
+          <View style={styles.progressBarContainer}>
+            <View style={styles.progressBar}>
+              <LinearGradient
+                colors={colors.gradients.success}
+                style={[
+                  styles.progressFill,
+                  { width: `${progressPourcentage}%` },
+                ]}
+              />
+            </View>
+            <Text style={styles.progressText}>
+              {Math.round(progressPourcentage)}%
+            </Text>
+          </View>
+        </View>
+      )}
     </View>
   );
 }
