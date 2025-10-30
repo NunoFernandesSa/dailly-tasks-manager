@@ -52,7 +52,7 @@ export default function HeaderHomeComponent({
         </Text>
       </View>
 
-      {true && (
+      {totalTodosCount > 0 && (
         <View style={styles.progressContainer}>
           <View style={styles.progressBarContainer}>
             <View style={styles.progressBar}>
