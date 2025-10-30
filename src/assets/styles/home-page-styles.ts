@@ -6,7 +6,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
     safeArea: {
       flex: 1,
       backgroundColor: colors.bg,
-      paddingHorizontal: 12,
+      paddingHorizontal: 22,
     },
     container: {
       flex: 1,
@@ -23,7 +23,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       color: colors.text,
     },
     header: {
-      paddingHorizontal: 24,
+      // paddingHorizontal: 24,
       paddingVertical: 32,
       paddingBottom: 24,
     },
@@ -82,7 +82,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       color: colors.success,
     },
     inputSection: {
-      paddingHorizontal: 24,
+      // paddingHorizontal: 22,
       paddingBottom: 12,
     },
     inputWrapper: {
