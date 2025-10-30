@@ -93,7 +93,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
     input: {
       flex: 1,
       borderWidth: 2,
-      borderRadius: 20,
+      borderRadius: 16,
       paddingHorizontal: 20,
       paddingVertical: 16,
       fontSize: 17,
@@ -107,9 +107,9 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       borderColor: colors.primary,
     },
     addButton: {
-      width: 56,
-      height: 56,
-      borderRadius: 28,
+      width: 48,
+      height: 58,
+      borderRadius: 16,
       justifyContent: "center",
       alignItems: "center",
     },
