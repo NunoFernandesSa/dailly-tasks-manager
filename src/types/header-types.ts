@@ -1,5 +1,5 @@
 export type HeaderTypes = {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   title: string;
   description?: string;
 };

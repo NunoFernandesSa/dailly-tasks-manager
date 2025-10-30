@@ -1,5 +1,6 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
 import HeaderHomeComponent from "@/src/components/ui/header-home-component";
+import TodoInput from "@/src/components/ui/TodoInput";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
 
@@ -16,11 +17,9 @@ export default function HomePage() {
     <>
       <StatusBar barStyle={colors.statusBarStyle} />
       <SafeAreaView style={homeStyles.safeArea}>
-        <HeaderHomeComponent
-          icon="home"
-          title="Home"
-          description="Welcome to the home page"
-        />
+        <HeaderHomeComponent title="My Tasks" />
+
+        <TodoInput />
       </SafeAreaView>
     </>
   );

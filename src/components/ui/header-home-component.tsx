@@ -39,7 +39,7 @@ export default function HeaderHomeComponent({
     <View style={styles.header}>
       <View style={styles.titleContainer}>
         <View style={styles.titleTextContainer}>
-          <Text style={styles.title}>My Tasks</Text>
+          <Text style={styles.title}>{title}</Text>
           <Text style={styles.subtitle}>
             {!totalTodosCount || totalTodosCount === 0
               ? "Any task available!"
