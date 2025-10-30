@@ -1,19 +1,27 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
+import HeaderHomeComponent from "@/src/components/ui/header-home-component";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
 
-import { Text } from "react-native";
+import { StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomePage() {
   const { colors } = useTheme();
 
   // create the styles using the theme colors
-  const styles = homePageStyles(colors);
+  const homeStyles = homePageStyles(colors);
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <Text style={styles.loadingText}>Home page</Text>
-    </SafeAreaView>
+    <>
+      <StatusBar barStyle={colors.statusBarStyle} />
+      <SafeAreaView style={homeStyles.safeArea}>
+        <HeaderHomeComponent
+          icon="home"
+          title="Home"
+          description="Welcome to the home page"
+        />
+      </SafeAreaView>
+    </>
   );
 }
