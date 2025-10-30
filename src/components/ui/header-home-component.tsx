@@ -30,6 +30,9 @@ export default function HeaderHomeComponent({
   // total of todos count
   const totalTodosCount = todos ? todos.length : 0;
 
+  const progresspourcentage =
+    totalTodosCount > 0 ? (completedTodosCount / totalTodosCount) * 100 : 0;
+
   return (
     <View style={styles.header}>
       <View
@@ -41,14 +44,16 @@ export default function HeaderHomeComponent({
           gap: 12,
         }}
       >
-        <Text style={styles.title}>My Tasks</Text>
+        <Text style={styles.title}>My Tasks |</Text>
         <Text style={styles.subtitle}>
           {day}/{month}/{year}
         </Text>
       </View>
 
       <Text style={styles.subtitle}>
-        {completedTodosCount} tasks sur {totalTodosCount}
+        {!totalTodosCount || totalTodosCount === 0
+          ? "Any task available. Add a new one!"
+          : `${completedTodosCount} tasks of ${totalTodosCount} completed`}
       </Text>
     </View>
   );
