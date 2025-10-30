@@ -1,10 +1,10 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
 import useTheme from "@/src/hooks/useTheme";
-import useTodos from "@/src/hooks/useTodos";
+import { useTodoStore } from "@/src/store/todoStore";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useState } from "react";
-import { TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function TodoInput() {
   // ----- colors theme -----
@@ -13,18 +13,24 @@ export default function TodoInput() {
   const styles = homePageStyles(colors);
 
   const [newTodo, setNewTodo] = useState("");
-  const { addTodo } = useTodos();
+  const { addTodo } = useTodoStore();
 
   // ----- create a new todo on AsyncStorage -----
-  const handleAddTodo = async () => {
-    if (newTodo.trim() === "") return;
-    await addTodo({
-      id: new Date(),
-      text: newTodo,
-      completed: false,
-      createdAt: new Date(),
-    });
-    setNewTodo("");
+  const handleAddTodo = () => {
+    if (newTodo.trim()) {
+      try {
+        addTodo({
+          id: new Date(),
+          text: newTodo.trim(),
+          completed: false,
+          createdAt: new Date(),
+        });
+        setNewTodo("");
+      } catch (error) {
+        console.log("Error adding todo:", error);
+        Alert.alert("Error", "Failed to add todo");
+      }
+    }
   };
 
   return (

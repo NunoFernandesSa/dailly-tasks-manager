@@ -1,9 +1,9 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
 import useTheme from "@/src/hooks/useTheme";
-import useTodos from "@/src/hooks/useTodos";
+import { useTodoStore } from "@/src/store/todoStore";
 import { HeaderTypes } from "@/src/types/header-types";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, View } from "react-native";
 
 export default function HeaderHomeComponent({
@@ -12,7 +12,7 @@ export default function HeaderHomeComponent({
   description,
 }: HeaderTypes) {
   const { colors } = useTheme();
-  const { todos } = useTodos();
+  const { todos, loadTodos } = useTodoStore();
 
   // ----- styles for header component -----
   const styles = homePageStyles(colors);
@@ -34,6 +34,10 @@ export default function HeaderHomeComponent({
   // ----- calculate progress percentage -----
   const progressPourcentage =
     totalTodosCount > 0 ? (completedTodosCount / totalTodosCount) * 100 : 0;
+
+  useEffect(() => {
+    loadTodos();
+  }, [loadTodos]);
 
   return (
     <View style={styles.header}>
