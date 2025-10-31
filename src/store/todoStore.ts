@@ -16,19 +16,17 @@ import { TodoType } from "../types/todos-types";
  */
 export const useTodoStore = create<TodoStore>((set, get) => ({
   todos: [],
-  editingText: "",
   isLoading: false,
 
-  // Sets the editing text for a todo item.
-  /**
-   * setEditingText
-   * Sets the editing text for a todo item.
-   *
-   * @param {string} text - The text to be set as the editing text.
-   */
-  setEditingText: (text: string) => {
-    set((state) => ({ ...state, editingText: text }));
-  },
+  // modal states
+  isEditModalVisible: false,
+  editingId: null,
+  editingText: "",
+
+  // modal methods
+  setEditModalVisible: (visible) => set({ isEditModalVisible: visible }),
+  setEditingId: (id) => set({ editingId: id }),
+  setEditingText: (text) => set({ editingText: text }),
 
   // Loads todos from AsyncStorage, setting isLoading to true during the process.
   /**

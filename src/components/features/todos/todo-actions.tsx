@@ -59,14 +59,9 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
     }
   };
 
-  const handleUpdateTodo = async (id: TodoType["id"], text: string) => {
+  // TODO: implement logic for update todo
+  const handleUpdateTodo = async () => {
     try {
-      await updateTodo(id, {
-        id,
-        text,
-        completed: todo?.completed || false,
-        createdAt: todo?.createdAt || new Date(),
-      });
     } catch (error) {
       console.log("Error updating todo:", error);
     }
