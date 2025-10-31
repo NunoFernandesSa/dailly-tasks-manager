@@ -10,12 +10,10 @@ import TodoItem from "./todo-item";
 export default function TodosList() {
   const { colors } = useTheme();
   const styles = homePageStyles(colors);
-  let todos = useTodoStore((state) => state.todos);
+  const todos = useTodoStore((state) => state.todos);
   const isLoading = useTodoStore((state) => state.isLoading);
 
   if (isLoading) return <LoadingSpinner />;
-
-  todos = [];
 
   return (
     <FlatList

@@ -68,7 +68,7 @@ export default function TodoItem({ id, text, completed }: TodoType) {
         </Text>
 
         {/* actions */}
-        <TodoActions />
+        <TodoActions id={id} />
       </LinearGradient>
     </View>
   );
