@@ -14,7 +14,7 @@ export default function EmptyTodoState() {
         <Ionicons name="clipboard-outline" size={48} color={colors.textMuted} />
       </View>
       <Text style={styles.emptyText}>No tasks found</Text>
-      <Text style={styles.emptySubtext}>Add a new todo to get started</Text>
+      <Text style={styles.emptySubtext}>Add a new task to get started</Text>
     </View>
   );
 }
