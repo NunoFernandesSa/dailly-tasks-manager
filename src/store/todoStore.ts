@@ -16,7 +16,19 @@ import { TodoType } from "../types/todos-types";
  */
 export const useTodoStore = create<TodoStore>((set, get) => ({
   todos: [],
+  editingText: "",
   isLoading: false,
+
+  // Sets the editing text for a todo item.
+  /**
+   * setEditingText
+   * Sets the editing text for a todo item.
+   *
+   * @param {string} text - The text to be set as the editing text.
+   */
+  setEditingText: (text: string) => {
+    set((state) => ({ ...state, editingText: text }));
+  },
 
   // Loads todos from AsyncStorage, setting isLoading to true during the process.
   /**
@@ -55,13 +67,15 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
    * @param {number} index - The index of the todo item to be updated.
    * @param {Todo} newValue - The new todo item values.
    */
-  updateTodo: async (index, newValue) => {
-    set((state) => ({ ...state, isLoading: true }));
-    const newTodos = [...get().todos];
-    newTodos[Number(index)] = newValue;
-    set({ todos: newTodos });
-    await AsyncStorage.setItem("todos", JSON.stringify(newTodos));
-    set((state) => ({ ...state, isLoading: false }));
+  updateTodo: async (id: string, newValue: TodoType) => {
+    set({ isLoading: true });
+    const currentTodos = get().todos;
+    const updatedTodos = currentTodos.map((todo) =>
+      todo.id === id ? { ...todo, text: newValue } : todo
+    );
+    set({ todos: updatedTodos as TodoType[] });
+    await AsyncStorage.setItem("todos", JSON.stringify(updatedTodos));
+    set({ isLoading: false });
   },
 
   // Toggles the completion status of a todo item with the specified ID, updating AsyncStorage and setting isLoading to true.
