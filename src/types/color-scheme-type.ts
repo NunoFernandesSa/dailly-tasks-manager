@@ -1,3 +1,4 @@
+// Color scheme type for theme colors.
 export type ColorSchemeType = {
   bg: string;
   surface: string;

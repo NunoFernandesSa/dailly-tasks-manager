@@ -1,3 +1,4 @@
+// _todo type for todo items.
 export type TodoType = {
   id: Date;
   text: string;

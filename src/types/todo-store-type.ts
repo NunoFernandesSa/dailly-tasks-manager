@@ -1,5 +1,6 @@
 import { TodoType } from "./todos-types";
 
+// _todo store type for todo state and methods.
 export type TodoStore = {
   todos: TodoType[];
   isLoading: boolean;
