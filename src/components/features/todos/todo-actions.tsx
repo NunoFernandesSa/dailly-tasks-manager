@@ -14,6 +14,8 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
   const toggleTodo = useTodoStore((state) => state.toggleTodo);
   const { todos, deleteTodo, updateTodo } = useTodoStore((state) => state);
 
+  const todo = todos.find((todo) => todo.id === id);
+
   // Handle toggle complete
   /**
    * handleToggleComplete
@@ -40,9 +42,16 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
         </LinearGradient>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => deleteTodo(id)} activeOpacity={0.7}>
+      <TouchableOpacity
+        onPress={() => {
+          todo?.completed && deleteTodo(id);
+        }}
+        activeOpacity={0.7}
+      >
         <LinearGradient
-          colors={colors.gradients.danger}
+          colors={
+            todo?.completed ? colors.gradients.danger : colors.gradients.muted
+          }
           style={styles.actionButton}
         >
           <Ionicons name="trash" size={24} color={colors.text} />
