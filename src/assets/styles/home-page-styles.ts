@@ -93,7 +93,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
     input: {
       flex: 1,
       borderWidth: 2,
-      borderRadius: 16,
+      borderRadius: 9,
       paddingHorizontal: 20,
       paddingVertical: 16,
       fontSize: 17,
@@ -109,7 +109,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
     addButton: {
       width: 48,
       height: 58,
-      borderRadius: 16,
+      borderRadius: 9,
       justifyContent: "center",
       alignItems: "center",
     },
@@ -120,7 +120,6 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       flex: 1,
     },
     todoListContent: {
-      paddingHorizontal: 24,
       paddingBottom: 100,
     },
     emptyListContainer: {
@@ -128,13 +127,13 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       justifyContent: "center",
     },
     todoItemWrapper: {
-      marginVertical: 12,
+      marginVertical: 6,
     },
     todoItem: {
       flexDirection: "row",
       alignItems: "flex-start",
       padding: 20,
-      borderRadius: 20,
+      borderRadius: 9,
       shadowColor: "#000",
       shadowOffset: {
         width: 0,

@@ -2,8 +2,9 @@ import { homePageStyles } from "@/src/assets/styles/home-page-styles";
 import useTheme from "@/src/hooks/useTheme";
 import { useTodoStore } from "@/src/store/todoStore";
 import React from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList } from "react-native";
 import LoadingSpinner from "../../common/loading-spinner";
+import TodoItem from "./todo-item";
 
 export default function TodosList() {
   const { colors } = useTheme();
@@ -18,13 +19,9 @@ export default function TodosList() {
       data={todos}
       keyExtractor={(item) => item.id.toString()}
       showsVerticalScrollIndicator={false}
-      renderItem={({ item }) => (
-        <View style={styles.todoListContent}>
-          <View style={styles.todoList}>
-            <Text style={styles.todoText}>{item.text}</Text>
-          </View>
-        </View>
-      )}
+      renderItem={({ item }) => <TodoItem {...item} />}
+      style={styles.todoList}
+      contentContainerStyle={styles.todoListContent}
     />
   );
 }
