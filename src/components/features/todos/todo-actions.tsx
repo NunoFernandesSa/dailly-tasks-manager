@@ -41,7 +41,7 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
    */
   const handleDeleteTodo = async (id: TodoType["id"]) => {
     try {
-      if (todo?.completed) {
+      if (todo) {
         Alert.alert(
           "Delete Todo",
           "Are you sure you want to delete this todo?",
@@ -85,9 +85,7 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
         activeOpacity={0.7}
       >
         <LinearGradient
-          colors={
-            todo?.completed ? colors.gradients.danger : colors.gradients.muted
-          }
+          colors={colors.gradients.danger}
           style={styles.actionButton}
         >
           <Ionicons name="trash" size={24} color={colors.text} />
