@@ -12,7 +12,7 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
   const styles = homePageStyles(colors);
   // zustand toggleTodo action
   const toggleTodo = useTodoStore((state) => state.toggleTodo);
-  const { todos, deleteTodo, updateTodo } = useTodoStore((state) => state);
+  const { todos, deleteTodo } = useTodoStore((state) => state);
   const { setEditModalVisible, setEditingId, setEditingText } = useTodoStore();
 
   const todo = todos.find((todo) => todo.id === id);

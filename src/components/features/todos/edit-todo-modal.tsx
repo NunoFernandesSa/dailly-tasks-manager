@@ -1,14 +1,12 @@
 import { modalStyles } from "@/src/assets/styles/modal-style";
 import useTheme from "@/src/hooks/useTheme";
 import { useTodoStore } from "@/src/store/todoStore";
-import { ColorSchemeType } from "@/src/types/color-scheme-type";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import {
   Keyboard,
   Modal,
-  Text,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
@@ -60,17 +58,20 @@ export default function EditTodoModal() {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <View style={styles.inputWrapper}>
-              <TextInput
-                value={editingText}
-                inputMode="text"
-                placeholder="Edit your todo"
-                placeholderTextColor={colors.textMuted}
-                onChangeText={setEditingText}
-                multiline={true}
-                numberOfLines={3}
-                style={styles.input}
-              />
+            <View style={styles.inputSection}>
+              <View style={styles.inputWrapper}>
+                <TextInput
+                  style={styles.input}
+                  inputMode="text"
+                  placeholder="Add a new task"
+                  placeholderTextColor={colors.textMuted}
+                  value={editingText}
+                  onChangeText={setEditingText}
+                  onSubmitEditing={handleSave}
+                  multiline={true}
+                  numberOfLines={3}
+                />
+              </View>
 
               <View style={styles.buttonRow}>
                 {/* save button */}
@@ -79,8 +80,7 @@ export default function EditTodoModal() {
                     colors={colors.gradients.success}
                     style={styles.addButton}
                   >
-                    <Text>Save</Text>
-                    <Ionicons name="checkmark" size={24} color={colors.text} />
+                    <Ionicons name="add" size={24} color={colors.text} />
                   </LinearGradient>
                 </TouchableOpacity>
 
@@ -88,10 +88,9 @@ export default function EditTodoModal() {
                 <TouchableOpacity onPress={handleCancel} activeOpacity={0.8}>
                   <LinearGradient
                     colors={colors.gradients.danger}
-                    style={styles.cancelButton}
+                    style={styles.addButton}
                   >
-                    <Ionicons name="close" size={24} color={colors.text} />
-                    <Text>Cancel</Text>
+                    <Ionicons name="add" size={24} color={colors.text} />
                   </LinearGradient>
                 </TouchableOpacity>
               </View>
@@ -101,7 +100,4 @@ export default function EditTodoModal() {
       </TouchableWithoutFeedback>
     </Modal>
   );
-}
-function modalStyle(colors: ColorSchemeType) {
-  throw new Error("Function not implemented.");
 }

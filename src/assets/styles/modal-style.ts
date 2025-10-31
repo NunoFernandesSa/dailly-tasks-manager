@@ -11,14 +11,32 @@ export const modalStyles = (colors: ColorSchemeType) => {
     modalContent: {
       margin: 20,
       padding: 20,
-      backgroundColor: "",
       borderRadius: 10,
     },
-    inputWrapper: {},
+    inputSection: {
+      paddingBottom: 12,
+    },
+    inputWrapper: {
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 16,
+      paddingVertical: 30,
+    },
     input: {
-      borderBottomWidth: 1,
-      marginBottom: 10,
-      padding: 8,
+      width: "100%",
+      borderWidth: 2,
+      borderRadius: 9,
+      paddingHorizontal: 20,
+      paddingVertical: 16,
+      fontSize: 17,
+      maxHeight: 120,
+      fontWeight: "500",
+      backgroundColor: colors.backgrounds.input,
+      borderColor: colors.border,
+      color: colors.text,
+    },
+    inputFocused: {
+      borderColor: colors.primary,
     },
     buttonRow: {
       flexDirection: "row",
