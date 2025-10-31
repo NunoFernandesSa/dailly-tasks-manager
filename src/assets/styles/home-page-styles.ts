@@ -164,6 +164,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       fontWeight: "500",
       marginBottom: 16,
       color: colors.text,
+      alignSelf: "flex-start",
     },
     todoActions: {
       flexDirection: "row",
