@@ -130,8 +130,8 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       marginVertical: 6,
     },
     todoItem: {
-      flexDirection: "row",
-      alignItems: "flex-start",
+      flexDirection: "column",
+      alignItems: "flex-end",
       padding: 20,
       borderRadius: 9,
       shadowColor: "#000",
