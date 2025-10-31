@@ -4,6 +4,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { ActivityIndicator, Text, View } from "react-native";
 
+/**
+ * LoadingSpinner
+ * A full-screen loading component that displays a gradient background,
+ * an animated ActivityIndicator, and a loading message.
+ *
+ * Used while asynchronous data (e.g., todos) is being fetched.
+ */
 export default function LoadingSpinner() {
   const { colors } = useTheme();
   const homeStyles = homePageStyles(colors);
