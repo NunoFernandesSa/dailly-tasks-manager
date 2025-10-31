@@ -20,7 +20,7 @@ export default function TodoInput() {
     if (newTodo.trim()) {
       try {
         addTodo({
-          id: new Date(),
+          id: new Date().toISOString(),
           text: newTodo.trim(),
           completed: false,
           createdAt: new Date(),

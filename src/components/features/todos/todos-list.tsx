@@ -4,24 +4,28 @@ import { useTodoStore } from "@/src/store/todoStore";
 import React from "react";
 import { FlatList } from "react-native";
 import LoadingSpinner from "../../common/loading-spinner";
+import EmptyTodoState from "./empty-todo-state";
 import TodoItem from "./todo-item";
 
 export default function TodosList() {
   const { colors } = useTheme();
   const styles = homePageStyles(colors);
-  const todos = useTodoStore((state) => state.todos);
+  let todos = useTodoStore((state) => state.todos);
   const isLoading = useTodoStore((state) => state.isLoading);
 
   if (isLoading) return <LoadingSpinner />;
 
+  todos = [];
+
   return (
     <FlatList
-      data={todos}
+      data={todos || []}
       keyExtractor={(item) => item.id.toString()}
       showsVerticalScrollIndicator={false}
       renderItem={({ item }) => <TodoItem {...item} />}
       style={styles.todoList}
       contentContainerStyle={styles.todoListContent}
+      ListEmptyComponent={<EmptyTodoState />}
     />
   );
 }

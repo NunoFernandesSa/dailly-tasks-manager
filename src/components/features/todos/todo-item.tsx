@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+import TodoActions from "./todo-actions";
 
 export default function TodoItem({ id, text, completed }: TodoType) {
   const { colors } = useTheme();
@@ -31,9 +32,6 @@ export default function TodoItem({ id, text, completed }: TodoType) {
   return (
     <View style={styles.todoItemWrapper}>
       <LinearGradient colors={colors.gradients.surface} style={styles.todoItem}>
-        {/* todo text */}
-        <Text style={styles.todoText}>{text}</Text>
-
         {/* Checkbox */}
         <TouchableOpacity
           style={styles.checkbox}
@@ -54,6 +52,23 @@ export default function TodoItem({ id, text, completed }: TodoType) {
             )}
           </LinearGradient>
         </TouchableOpacity>
+
+        {/* todo text */}
+        <Text
+          style={[
+            styles.todoText,
+            completed && {
+              textDecorationLine: "line-through",
+              color: colors.textMuted,
+              opacity: 0.5,
+            },
+          ]}
+        >
+          {text}
+        </Text>
+
+        {/* actions */}
+        <TodoActions />
       </LinearGradient>
     </View>
   );

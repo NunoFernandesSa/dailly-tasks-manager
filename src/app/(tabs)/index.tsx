@@ -1,7 +1,7 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
 import TodosList from "@/src/components/features/todos/todos-list";
 import HeaderHomeComponent from "@/src/components/ui/header-home-component";
-import TodoInput from "@/src/components/features/todos/TodoInput";
+import TodoInput from "@/src/components/features/todos/todo-input";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
 
