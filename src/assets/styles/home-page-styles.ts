@@ -28,8 +28,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       paddingBottom: 24,
     },
     titleContainer: {
-      flexDirection: "row",
-      alignItems: "center",
+      alignItems: "flex-start",
       marginBottom: 20,
     },
     iconContainer: {
@@ -40,9 +39,7 @@ export const homePageStyles = (colors: ColorSchemeType) => {
       alignItems: "center",
       marginRight: 16,
     },
-    titleTextContainer: {
-      flex: 1,
-    },
+
     title: {
       fontSize: 32,
       fontWeight: "700",

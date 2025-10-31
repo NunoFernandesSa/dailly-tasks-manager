@@ -42,14 +42,12 @@ export default function HeaderHomeComponent({
   return (
     <View style={styles.header}>
       <View style={styles.titleContainer}>
-        <View style={styles.titleTextContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subtitle}>
-            {!totalTodosCount || totalTodosCount === 0
-              ? "Any task available!"
-              : `${completedTodosCount} tasks of ${totalTodosCount} completed`}
-          </Text>
-        </View>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>
+          {!totalTodosCount || totalTodosCount === 0
+            ? "Any task available!"
+            : `${completedTodosCount} tasks of ${totalTodosCount} completed`}
+        </Text>
 
         <Text style={styles.subtitle}>
           {day}/{month}/{year}
