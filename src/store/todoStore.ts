@@ -85,11 +85,11 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
    * deleteTodo
    * Deletes a todo item at the specified index, updating AsyncStorage and setting isLoading to true.
    *
-   * @param {number} index - The index of the todo item to be deleted.
+   * @param {number} id - The index of the todo item to be deleted.
    */
-  deleteTodo: async (index) => {
-    const newTodos = [...get().todos];
-    newTodos.splice(Number(index), 1);
+  deleteTodo: async (id) => {
+    const currentTodos = get().todos;
+    const newTodos = currentTodos.filter((todo) => todo.id !== id);
     set({ todos: newTodos });
     await AsyncStorage.setItem("todos", JSON.stringify(newTodos));
   },

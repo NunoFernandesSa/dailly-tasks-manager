@@ -5,7 +5,7 @@ import { TodoType } from "@/src/types/todos-types";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import { Alert, TouchableOpacity, View } from "react-native";
 
 export default function TodoActions({ id }: { id: TodoType["id"] }) {
   const { colors } = useTheme();
@@ -31,9 +31,48 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
     }
   };
 
+  // Handle delete todo
+  /**
+   * handleDeleteTodo
+   * Prompts the user for confirmation before deleting a todo item with the specified ID, updating AsyncStorage and setting isLoading to true.
+   *
+   * @param {TodoType["id"]} id - The ID of the todo item to be deleted.
+   */
+  const handleDeleteTodo = async (id: TodoType["id"]) => {
+    try {
+      if (todo?.completed) {
+        Alert.alert(
+          "Delete Todo",
+          "Are you sure you want to delete this todo?",
+          [
+            { text: "Cancel", style: "cancel" },
+            {
+              text: "Delete",
+              style: "destructive",
+              onPress: () => deleteTodo(id),
+            },
+          ]
+        );
+      }
+    } catch (error) {
+      console.log("Error deleting todo:", error);
+    }
+  };
+
+  const handleUpdateTodo = async (id: TodoType["id"]) => {
+    try {
+    } catch (error) {
+      console.log("Error updating todo:", error);
+    }
+  };
+
   return (
     <View style={styles.todoActions}>
-      <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
+      {/* edit button */}
+      <TouchableOpacity
+        onPress={() => handleUpdateTodo(id)}
+        activeOpacity={0.7}
+      >
         <LinearGradient
           colors={colors.gradients.warning}
           style={styles.actionButton}
@@ -42,10 +81,9 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
         </LinearGradient>
       </TouchableOpacity>
 
+      {/* delete button */}
       <TouchableOpacity
-        onPress={() => {
-          todo?.completed && deleteTodo(id);
-        }}
+        onPress={() => handleDeleteTodo(id)}
         activeOpacity={0.7}
       >
         <LinearGradient
