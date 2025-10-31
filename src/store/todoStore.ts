@@ -74,9 +74,8 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
   toggleTodo: async (id: TodoType["id"]) => {
     const newTodos = [...get().todos];
     const todo = newTodos.find((todo) => todo.id === id);
-    if (todo) {
-      todo.completed = !todo.completed;
-    }
+    if (!todo) throw new Error("Todo not found");
+    if (todo) todo.completed = !todo.completed;
     set({ todos: newTodos });
     await AsyncStorage.setItem("todos", JSON.stringify(newTodos));
   },
