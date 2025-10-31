@@ -61,7 +61,7 @@ export const modalStyles = (colors: ColorSchemeType) => {
     },
     text: {
       fontSize: 17,
-      fontWeight: "500",
+      fontWeight: "600",
       color: colors.text,
     },
   });
