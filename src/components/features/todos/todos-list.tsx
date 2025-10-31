@@ -4,6 +4,7 @@ import { useTodoStore } from "@/src/store/todoStore";
 import React from "react";
 import { FlatList } from "react-native";
 import LoadingSpinner from "../../common/loading-spinner";
+import EditTodoModal from "./edit-toto-modal";
 import EmptyTodoState from "./empty-todo-state";
 import TodoItem from "./todo-item";
 
@@ -16,14 +17,17 @@ export default function TodosList() {
   if (isLoading) return <LoadingSpinner />;
 
   return (
-    <FlatList
-      data={todos || []}
-      keyExtractor={(item) => item.id.toString()}
-      showsVerticalScrollIndicator={false}
-      renderItem={({ item }) => <TodoItem {...item} />}
-      style={styles.todoList}
-      contentContainerStyle={styles.todoListContent}
-      ListEmptyComponent={<EmptyTodoState />}
-    />
+    <>
+      <FlatList
+        data={todos || []}
+        keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }) => <TodoItem {...item} />}
+        style={styles.todoList}
+        contentContainerStyle={styles.todoListContent}
+        ListEmptyComponent={<EmptyTodoState />}
+      />
+      <EditTodoModal />
+    </>
   );
 }

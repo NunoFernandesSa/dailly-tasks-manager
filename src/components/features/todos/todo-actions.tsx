@@ -13,6 +13,7 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
   // zustand toggleTodo action
   const toggleTodo = useTodoStore((state) => state.toggleTodo);
   const { todos, deleteTodo, updateTodo } = useTodoStore((state) => state);
+  const { setEditModalVisible, setEditingId, setEditingText } = useTodoStore();
 
   const todo = todos.find((todo) => todo.id === id);
 
@@ -59,18 +60,17 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
     }
   };
 
-  // TODO: implement logic for update todo
-  const handleUpdateTodo = async () => {
-    try {
-    } catch (error) {
-      console.log("Error updating todo:", error);
-    }
-  };
-
   return (
     <View style={styles.todoActions}>
       {/* edit button */}
-      <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
+      <TouchableOpacity
+        onPress={() => {
+          setEditingId(id);
+          setEditingText(todo?.text || "");
+          setEditModalVisible(true);
+        }}
+        activeOpacity={0.7}
+      >
         <LinearGradient
           colors={colors.gradients.warning}
           style={styles.actionButton}
