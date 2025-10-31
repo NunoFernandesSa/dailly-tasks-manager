@@ -1,4 +1,5 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
+import TodosList from "@/src/components/features/todos/todos-list";
 import HeaderHomeComponent from "@/src/components/ui/header-home-component";
 import TodoInput from "@/src/components/ui/TodoInput";
 import useTheme from "@/src/hooks/useTheme";
@@ -17,9 +18,14 @@ export default function HomePage() {
     <>
       <StatusBar barStyle={colors.statusBarStyle} />
       <SafeAreaView style={homeStyles.safeArea}>
+        {/* Header */}
         <HeaderHomeComponent title="My Tasks" />
 
+        {/* Todo Input for add new tasks */}
         <TodoInput />
+
+        {/* Todo List */}
+        <TodosList />
       </SafeAreaView>
     </>
   );
