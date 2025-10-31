@@ -11,9 +11,7 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
   const { colors } = useTheme();
   const styles = homePageStyles(colors);
 
-  const { todos, deleteTodo, updateTodo } = useTodoStore((state) => state);
-
-  const todo = todos.find((item) => item.id === id);
+  const { deleteTodo, updateTodo } = useTodoStore((state) => state);
 
   return (
     <View style={styles.todoActions}>
