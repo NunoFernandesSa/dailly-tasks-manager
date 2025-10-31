@@ -4,7 +4,7 @@ import { useTodoStore } from "@/src/store/todoStore";
 import { TodoType } from "@/src/types/todos-types";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
+import React from "react";
 import { Alert, TouchableOpacity, View } from "react-native";
 
 export default function TodoActions({ id }: { id: TodoType["id"] }) {
@@ -15,9 +15,6 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
   const { todos, deleteTodo, updateTodo } = useTodoStore((state) => state);
 
   const todo = todos.find((todo) => todo.id === id);
-
-  const [editingId, setEditingId] = useState<TodoType["id"] | null>(null);
-  const [editingText, setEditingText] = useState(todo?.text || "");
 
   // Handle toggle complete
   /**
@@ -64,40 +61,21 @@ export default function TodoActions({ id }: { id: TodoType["id"] }) {
 
   const handleUpdateTodo = async (id: TodoType["id"], text: string) => {
     try {
+      await updateTodo(id, {
+        id,
+        text,
+        completed: todo?.completed || false,
+        createdAt: todo?.createdAt || new Date(),
+      });
     } catch (error) {
       console.log("Error updating todo:", error);
     }
   };
 
-  const handleEditTodo = (todo: TodoType) => {
-    setEditingId(todo.id);
-    setEditingText(todo.text);
-  };
-
-  const handleSaveTodo = async () => {
-    if (editingId) {
-      try {
-        await updateTodo(editingId,  editingText );
-        setEditingId(null);
-        setEditingText("");
-      } catch (error) {
-        console.log("Error updating todo:", error);
-      }
-    }
-  };
-
-  const handleCancelTodo = () => {
-    setEditingId(null);
-    setEditingText("");
-  };
-
   return (
     <View style={styles.todoActions}>
       {/* edit button */}
-      <TouchableOpacity
-        onPress={() => handleUpdateTodo(id)}
-        activeOpacity={0.7}
-      >
+      <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
         <LinearGradient
           colors={colors.gradients.warning}
           style={styles.actionButton}

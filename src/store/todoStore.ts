@@ -71,9 +71,9 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
     set({ isLoading: true });
     const currentTodos = get().todos;
     const updatedTodos = currentTodos.map((todo) =>
-      todo.id === id ? { ...todo, text: newValue } : todo
+      todo.id === id ? { ...todo, ...newValue } : todo
     );
-    set({ todos: updatedTodos as TodoType[] });
+    set({ todos: updatedTodos });
     await AsyncStorage.setItem("todos", JSON.stringify(updatedTodos));
     set({ isLoading: false });
   },

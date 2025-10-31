@@ -3,7 +3,6 @@ import { TodoType } from "./todos-types";
 // _todo store type for todo state and methods.
 export type TodoStore = {
   todos: TodoType[];
-  editingText: string;
   isLoading: boolean;
   loadTodos: () => Promise<void>;
   addTodo: (task: TodoType) => Promise<void>;
