@@ -4,7 +4,7 @@ import { useTodoStore } from "@/src/store/todoStore";
 import React from "react";
 import { FlatList } from "react-native";
 import LoadingSpinner from "../../common/loading-spinner";
-import EditTodoModal from "./edit-toto-modal";
+import EditTodoModal from "./edit-todo-modal";
 import EmptyTodoState from "./empty-todo-state";
 import TodoItem from "./todo-item";
 
