@@ -1,6 +1,6 @@
 // _todo type for todo items.
 export type TodoType = {
-  id: Date;
+  id: string;
   text: string;
   completed: boolean;
   priority?: "low" | "medium" | "high";

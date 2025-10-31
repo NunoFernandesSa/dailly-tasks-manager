@@ -6,6 +6,7 @@ export type TodoStore = {
   isLoading: boolean;
   loadTodos: () => Promise<void>;
   addTodo: (task: TodoType) => Promise<void>;
-  updateTodo: (index: number, newValue: TodoType) => Promise<void>;
-  deleteTodo: (index: number) => Promise<void>;
+  updateTodo: (index: string, newValue: TodoType) => Promise<void>;
+  toggleTodo: (id: TodoType["id"]) => Promise<void>;
+  deleteTodo: (index: string) => Promise<void>;
 };

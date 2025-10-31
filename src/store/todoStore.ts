@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { TodoStore } from "../types/todo-store-type";
+import { TodoType } from "../types/todos-types";
 
 /**
  * Zustand store hook providing CRUD operations for todo items with AsyncStorage persistence.
@@ -57,10 +58,27 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
   updateTodo: async (index, newValue) => {
     set((state) => ({ ...state, isLoading: true }));
     const newTodos = [...get().todos];
-    newTodos[index] = newValue;
+    newTodos[Number(index)] = newValue;
     set({ todos: newTodos });
     await AsyncStorage.setItem("todos", JSON.stringify(newTodos));
     set((state) => ({ ...state, isLoading: false }));
+  },
+
+  // Toggles the completion status of a todo item with the specified ID, updating AsyncStorage and setting isLoading to true.
+  /**
+   * toggleTodo
+   * Toggles the completion status of a todo item with the specified ID, updating AsyncStorage and setting isLoading to true.
+   *
+   * @param {TodoType["id"]} id - The ID of the todo item to be toggled.
+   */
+  toggleTodo: async (id: TodoType["id"]) => {
+    const newTodos = [...get().todos];
+    const todo = newTodos.find((todo) => todo.id === id);
+    if (todo) {
+      todo.completed = !todo.completed;
+    }
+    set({ todos: newTodos });
+    await AsyncStorage.setItem("todos", JSON.stringify(newTodos));
   },
 
   // Deletes a todo item at the specified index, updating AsyncStorage and setting isLoading to true.
@@ -72,7 +90,7 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
    */
   deleteTodo: async (index) => {
     const newTodos = [...get().todos];
-    newTodos.splice(index, 1);
+    newTodos.splice(Number(index), 1);
     set({ todos: newTodos });
     await AsyncStorage.setItem("todos", JSON.stringify(newTodos));
   },
