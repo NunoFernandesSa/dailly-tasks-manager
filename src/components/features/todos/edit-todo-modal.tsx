@@ -7,6 +7,7 @@ import React from "react";
 import {
   Keyboard,
   Modal,
+  Text,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
@@ -59,19 +60,17 @@ export default function EditTodoModal() {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <View style={styles.inputSection}>
-              <View style={styles.inputWrapper}>
-                <TextInput
-                  style={styles.input}
-                  inputMode="text"
-                  placeholder="Add a new task"
-                  placeholderTextColor={colors.textMuted}
-                  value={editingText}
-                  onChangeText={setEditingText}
-                  onSubmitEditing={handleSave}
-                  multiline={true}
-                  numberOfLines={3}
-                />
-              </View>
+              <TextInput
+                style={styles.input}
+                inputMode="text"
+                placeholder="Add a new task"
+                placeholderTextColor={colors.textMuted}
+                value={editingText}
+                onChangeText={setEditingText}
+                onSubmitEditing={handleSave}
+                multiline={true}
+                numberOfLines={3}
+              />
 
               <View style={styles.buttonRow}>
                 {/* save button */}
@@ -80,7 +79,8 @@ export default function EditTodoModal() {
                     colors={colors.gradients.success}
                     style={styles.addButton}
                   >
-                    <Ionicons name="add" size={24} color={colors.text} />
+                    <Text style={styles.text}>Save</Text>
+                    <Ionicons name="checkmark" size={24} color={colors.text} />
                   </LinearGradient>
                 </TouchableOpacity>
 
@@ -90,7 +90,8 @@ export default function EditTodoModal() {
                     colors={colors.gradients.danger}
                     style={styles.addButton}
                   >
-                    <Ionicons name="add" size={24} color={colors.text} />
+                    <Text style={styles.text}>Cancel</Text>
+                    <Ionicons name="close" size={24} color={colors.text} />
                   </LinearGradient>
                 </TouchableOpacity>
               </View>

@@ -41,7 +41,6 @@ export const modalStyles = (colors: ColorSchemeType) => {
     buttonRow: {
       flexDirection: "row",
       justifyContent: "space-between",
-      marginTop: 20,
     },
     addButton: {
       flexDirection: "row",
@@ -50,6 +49,7 @@ export const modalStyles = (colors: ColorSchemeType) => {
       alignItems: "center",
       justifyContent: "center",
       gap: 6,
+      marginTop: 20,
     },
     cancelButton: {
       flexDirection: "row",
@@ -58,6 +58,11 @@ export const modalStyles = (colors: ColorSchemeType) => {
       alignItems: "center",
       justifyContent: "center",
       gap: 6,
+    },
+    text: {
+      fontSize: 17,
+      fontWeight: "500",
+      color: colors.text,
     },
   });
 
