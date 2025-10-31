@@ -2,10 +2,28 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { TodoStore } from "../types/todo-store-type";
 
+/**
+ * Zustand store hook providing CRUD operations for todo items with AsyncStorage persistence.
+ *
+ * @property {Todo[]} todos - Array of todo items.
+ * @property {boolean} isLoading - Indicates if todos are currently being loaded.
+ *
+ * @method loadTodos - Loads todos from AsyncStorage, setting isLoading to true during the process.
+ * @method addTodo - Adds a new todo item, updating AsyncStorage and setting isLoading to true.
+ * @method updateTodo - Updates a todo item at the specified index, updating AsyncStorage and setting isLoading to true.
+ * @method deleteTodo - Deletes a todo item at the specified index, updating AsyncStorage and setting isLoading to true.
+ */
 export const useTodoStore = create<TodoStore>((set, get) => ({
   todos: [],
   isLoading: false,
 
+  // Loads todos from AsyncStorage, setting isLoading to true during the process.
+  /**
+   * loadTodos
+   * Loads todos from AsyncStorage, setting isLoading to true during the process.
+   *
+   * @returns {Promise<void>} - A promise that resolves when todos are loaded.
+   */
   loadTodos: async () => {
     set((state) => ({ ...state, isLoading: true }));
     const data = await AsyncStorage.getItem("todos");
@@ -13,6 +31,13 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
     set((state) => ({ ...state, todos: parsed, isLoading: false }));
   },
 
+  // Adds a new todo item, updating AsyncStorage and setting isLoading to true.
+  /**
+   * addTodo
+   * Adds a new todo item to the todos array, updating AsyncStorage and setting isLoading to true.
+   *
+   * @param {Todo} task - The todo item to be added.
+   */
   addTodo: async (task) => {
     set((state) => ({ ...state, isLoading: true }));
     const newTodos = [...get().todos, task];
@@ -21,6 +46,14 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
     set((state) => ({ ...state, isLoading: false }));
   },
 
+  // Updates a todo item at the specified index, updating AsyncStorage and setting isLoading to true.
+  /**
+   * updateTodo
+   * Updates a todo item at the specified index, updating AsyncStorage and setting isLoading to true.
+   *
+   * @param {number} index - The index of the todo item to be updated.
+   * @param {Todo} newValue - The new todo item values.
+   */
   updateTodo: async (index, newValue) => {
     set((state) => ({ ...state, isLoading: true }));
     const newTodos = [...get().todos];
@@ -30,8 +63,14 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
     set((state) => ({ ...state, isLoading: false }));
   },
 
+  // Deletes a todo item at the specified index, updating AsyncStorage and setting isLoading to true.
+  /**
+   * deleteTodo
+   * Deletes a todo item at the specified index, updating AsyncStorage and setting isLoading to true.
+   *
+   * @param {number} index - The index of the todo item to be deleted.
+   */
   deleteTodo: async (index) => {
-    set((state) => ({ ...state, isLoading: true }));
     const newTodos = [...get().todos];
     newTodos.splice(index, 1);
     set({ todos: newTodos });
