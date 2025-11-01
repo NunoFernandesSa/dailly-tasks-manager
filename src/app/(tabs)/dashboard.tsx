@@ -1,7 +1,8 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
+import ProgressStatsContainer from "@/src/components/features/dashboard/progress-stats-container";
+import HeaderHomeComponent from "@/src/components/ui/header-home-component";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
-import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function DashboardPage() {
@@ -12,7 +13,9 @@ export default function DashboardPage() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Text style={styles.loadingText}>Dashboard Page</Text>
+      <HeaderHomeComponent title="Dashboard" />
+
+      <ProgressStatsContainer />
     </SafeAreaView>
   );
 }

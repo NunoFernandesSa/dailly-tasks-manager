@@ -1,7 +1,7 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
+import HeaderHomeComponent from "@/src/components/ui/header-home-component";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
-import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SettingsPage() {
@@ -12,7 +12,7 @@ export default function SettingsPage() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Text style={styles.title}>Settings Page</Text>
+      <HeaderHomeComponent title="Settings" />
     </SafeAreaView>
   );
 }
