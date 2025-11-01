@@ -1,5 +1,12 @@
 {
   "name": "tasks-manager",
+  "description": "A mobile application to manage your daily tasks.",
+  "keywords": [
+    "tasks",
+    "manager",
+    "mobile",
+    "application"
+  ],
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
