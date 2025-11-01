@@ -48,6 +48,7 @@ export default function TodoInput() {
           numberOfLines={3}
         />
 
+        {/* add todo button */}
         <TouchableOpacity
           onPress={handleAddTodo}
           activeOpacity={0.8}
