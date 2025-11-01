@@ -102,8 +102,6 @@ export const createSettingsStyles = (colors: ColorSchemeType) => {
       justifyContent: "space-between",
       alignItems: "center",
       paddingVertical: 20,
-      borderBottomWidth: 1,
-      borderBottomColor: colors.border,
     },
     settingLeft: {
       flexDirection: "row",
