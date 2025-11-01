@@ -111,7 +111,7 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
    * resetTodos
    * Resets the todos array to an empty array, updating AsyncStorage and setting isLoading to true.
    */
-  resetTodos: () => {
+  resetApp: () => {
     set({ todos: [] });
     AsyncStorage.setItem("todos", JSON.stringify([]));
   },

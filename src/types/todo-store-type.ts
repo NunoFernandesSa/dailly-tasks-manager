@@ -21,4 +21,5 @@ export type TodoStore = {
   updateTodo: (index: string, newValue: TodoType) => Promise<void>;
   toggleTodo: (id: TodoType["id"]) => Promise<void>;
   deleteTodo: (index: string) => Promise<void>;
+  resetApp: () => Promise<void>;
 };
