@@ -36,7 +36,6 @@ export const createSettingsStyles = (colors: ColorSchemeType) => {
       flex: 1,
     },
     content: {
-      paddingHorizontal: 20,
       gap: 20,
       paddingBottom: 120,
     },

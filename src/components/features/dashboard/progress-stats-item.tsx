@@ -19,8 +19,6 @@ export default function ProgressStatsItem() {
 
   return (
     <LinearGradient colors={colors.gradients.surface} style={styles.section}>
-      <Text style={styles.sectionTitle}>Progress Stats</Text>
-
       <View style={styles.statsContainer}>
         {/* total todos */}
         <LinearGradient
