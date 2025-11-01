@@ -15,28 +15,30 @@ export default function DangerZone() {
   const { resetApp } = useTodoStore((state) => state);
 
   const handleResetApp = async () => {
-    try {
-      Alert.alert(
-        "Reset App",
-        "Are you sure you want to reset the app? This will delete all your todos.",
-        [
-          {
-            text: "Cancel",
-            style: "cancel",
-          },
-          {
-            text: "Reset",
-            style: "destructive",
-            onPress: async () => {
+    Alert.alert(
+      "Reset App",
+      "Are you sure you want to reset the app? This will delete all your todos.",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Reset",
+          style: "destructive",
+          onPress: async () => {
+            try {
               await resetApp();
+              Alert.alert("Success", "App reset successfully.");
               router.replace("/(tabs)");
-            },
+            } catch (error) {
+              console.error("Error resetting app:", error);
+              Alert.alert("Error", "Failed to reset the app.");
+            }
           },
-        ]
-      );
-    } catch (error) {
-      console.error("Error resetting app:", error);
-    }
+        },
+      ]
+    );
   };
 
   return (
