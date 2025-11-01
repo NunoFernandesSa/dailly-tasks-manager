@@ -1,4 +1,5 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
+import DangerZone from "@/src/components/features/settings/danger-zone/danger-zone";
 import SetttingsContainer from "@/src/components/features/settings/settings-container";
 import HeaderHomeComponent from "@/src/components/ui/header-home-component";
 import useTheme from "@/src/hooks/useTheme";
@@ -16,6 +17,8 @@ export default function SettingsPage() {
       <HeaderHomeComponent title="Settings" />
 
       <SetttingsContainer />
+
+      <DangerZone />
     </SafeAreaView>
   );
 }

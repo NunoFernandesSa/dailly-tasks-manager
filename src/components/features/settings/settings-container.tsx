@@ -2,7 +2,7 @@ import { createSettingsStyles } from "@/src/assets/styles/settings-page-styles";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
 import { ScrollView, View } from "react-native";
-import Preferences from "./preferences";
+import Preferences from "./preferences/preferences";
 
 export default function SetttingsContainer() {
   const { colors } = useTheme();
