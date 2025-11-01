@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Switch, Text, View } from "react-native";
 
-export default function SettingsItems() {
+export default function PreferencesItems() {
   const { colors, isDarkMode, toggleDarkMode } = useTheme();
   const styles = createSettingsStyles(colors);
 

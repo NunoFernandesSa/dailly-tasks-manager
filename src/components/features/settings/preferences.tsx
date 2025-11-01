@@ -2,7 +2,7 @@ import { createSettingsStyles } from "@/src/assets/styles/settings-page-styles";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
 import { Text } from "react-native";
-import SettingsItems from "./settings-items";
+import PreferencesItems from "./preference-items";
 
 export default function Preferences() {
   const { colors } = useTheme();
@@ -11,8 +11,7 @@ export default function Preferences() {
   return (
     <>
       <Text style={styles.sectionTitle}>Preferences</Text>
-
-      <SettingsItems />
+      <PreferencesItems />
     </>
   );
 }
