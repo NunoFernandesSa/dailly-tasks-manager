@@ -1,50 +1,82 @@
-# Welcome to your Expo app 👋
+# Daily Tasks Manager
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile application to manage your daily tasks efficiently. Built with React Native and Expo.
 
-## Get started
+## Features
 
-1. Install dependencies
+- ✅ Create, edit, and delete tasks
+- 🔄 Real-time task status updates
+- 💾 Persistent storage with AsyncStorage
+- 🌓 Light and dark theme support
+- 📱 Cross-platform (iOS, Android, Web)
 
-   ```bash
+## Technologies Used
+
+- [React Native](https://reactnative.dev/) - Mobile app framework
+- [Expo](https://expo.dev/) - React Native toolchain
+- [Expo Router](https://docs.expo.dev/router/introduction/) - File-based routing
+- [Zustand](https://github.com/pmndrs/zustand) - State management
+- [AsyncStorage](https://react-native-async-storage.github.io/async-storage/) - Data persistence
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or newer)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+
+### Installation
+
+1. Clone the repository
+
+   ```
+   git clone <repository-url>
+   cd dailly-tasks
+   ```
+
+2. Install dependencies
+
+   ```
    npm install
+   # or
+   yarn install
    ```
 
-2. Start the app
+3. Start the development server
 
-   ```bash
-   npx expo start
+   ```
+   npm start
+   # or
+   yarn start
    ```
 
-In the output, you'll find options to open the app in a
+4. Follow the instructions in the terminal to open the app on your device or emulator
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Usage
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Add a task**: Enter task details + tap the "+" button and it will be added to the list
+- **Edit a task**: Tap on edit button next to a task to edit its details
+- **Delete a task**: Tap on trash button next to a task to delete it
+- **Mark as complete**: Tap the checkbox next to a task
 
-## Get a fresh project
+## Project Structure
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+src/
+├── app/               # Expo Router screens
+├── assets/            # Images and styles
+├── components/        # UI & Features components
+├── constants/         # App constants
+├── hooks/             # Custom React hooks
+├── store/             # Zustand store
+└── types/             # TypeScript type definitions
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## License
 
-## Learn more
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Author
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+CodeBySa
