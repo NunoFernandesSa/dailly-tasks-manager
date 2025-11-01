@@ -1,18 +1,19 @@
 import { createSettingsStyles } from "@/src/assets/styles/settings-page-styles";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
-import { View } from "react-native";
-import ProgressStatsItem from "./progress-stats-item";
+import { ScrollView, View } from "react-native";
 
-export default function ProgressStatsContainer() {
+export default function SetttingsContainer() {
   const { colors } = useTheme();
   const styles = createSettingsStyles(colors);
 
   return (
     <View style={styles.container}>
-      <View style={styles.scrollView}>
-        <ProgressStatsItem />
-      </View>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+      ></ScrollView>
     </View>
   );
 }
