@@ -1,4 +1,5 @@
 import { homePageStyles } from "@/src/assets/styles/home-page-styles";
+import SetttingsContainer from "@/src/components/features/settings/settings-container";
 import HeaderHomeComponent from "@/src/components/ui/header-home-component";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
@@ -13,6 +14,8 @@ export default function SettingsPage() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <HeaderHomeComponent title="Settings" />
+
+      <SetttingsContainer />
     </SafeAreaView>
   );
 }

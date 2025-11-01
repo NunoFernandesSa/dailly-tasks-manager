@@ -2,6 +2,7 @@ import { createSettingsStyles } from "@/src/assets/styles/settings-page-styles";
 import useTheme from "@/src/hooks/useTheme";
 import React from "react";
 import { ScrollView, View } from "react-native";
+import SettingsItem from "./settings-item";
 
 export default function SetttingsContainer() {
   const { colors } = useTheme();
@@ -13,7 +14,9 @@ export default function SetttingsContainer() {
         style={styles.scrollView}
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
-      ></ScrollView>
+      >
+        <SettingsItem />
+      </ScrollView>
     </View>
   );
 }
