@@ -36,7 +36,7 @@ export default function ProgressStatsItem() {
 
           <View>
             <Text style={styles.statNumber}>{totalTodos}</Text>
-            <Text style={styles.statLabel}>Total Todos</Text>
+            <Text style={styles.statLabel}>Total Tasks</Text>
           </View>
         </LinearGradient>
 
@@ -56,7 +56,7 @@ export default function ProgressStatsItem() {
 
           <View>
             <Text style={styles.statNumber}>{completedTodos}</Text>
-            <Text style={styles.statLabel}>Completed Todos</Text>
+            <Text style={styles.statLabel}>Completed Tasks</Text>
           </View>
         </LinearGradient>
 
@@ -76,7 +76,7 @@ export default function ProgressStatsItem() {
 
           <View>
             <Text style={styles.statNumber}>{activeTodos}</Text>
-            <Text style={styles.statLabel}>Active Todos</Text>
+            <Text style={styles.statLabel}>Active Tasks</Text>
           </View>
         </LinearGradient>
       </View>
