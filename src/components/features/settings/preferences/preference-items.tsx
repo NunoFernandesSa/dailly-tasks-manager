@@ -12,22 +12,20 @@ export default function PreferencesItems() {
   const titleMode = "Dark mode";
 
   return (
-    <LinearGradient colors={colors.gradients.surface} style={styles.section}>
-      <View style={styles.settingItem}>
-        <View style={styles.settingLeft}>
-          <LinearGradient
-            colors={colors.gradients.primary}
-            style={styles.settingIcon}
-          >
-            <Ionicons name="moon" size={24} color={colors.text} />
-          </LinearGradient>
-          <Text style={styles.settingText}>{titleMode}</Text>
-        </View>
-
-        <View>
-          <Switch value={isDarkMode} onValueChange={toggleDarkMode} />
-        </View>
+    <View style={styles.settingItem}>
+      <View style={styles.settingLeft}>
+        <LinearGradient
+          colors={colors.gradients.primary}
+          style={styles.settingIcon}
+        >
+          <Ionicons name="moon" size={24} color={colors.text} />
+        </LinearGradient>
+        <Text style={styles.settingText}>{titleMode}</Text>
       </View>
-    </LinearGradient>
+
+      <View>
+        <Switch value={isDarkMode} onValueChange={toggleDarkMode} />
+      </View>
+    </View>
   );
 }
